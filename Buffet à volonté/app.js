@@ -1,27 +1,25 @@
+const vardump = require("@smartankur4u/vardump");
 module.exports = {
     ContestResponse: function () {
-    var tab2 = [];
-    var output = [];
-    for (let index = 1; index < input.length; index++) {
-        const element = input[index];
-        for (let y = 0; y < element.split("").length; y++) {
-            if (
-                (element[y + 1] === " " || (y + 1) >= element.split("").length) && !/^\d+$/.test(element[y - 1])) {
-                fig = parseInt(element[y]);
-                tab2.push(fig);
-            } else if (
-                (element[y - 1] === " " || y === 0) && /^\d+$/.test(element[y + 1])
-            ) {
-                num = parseInt(element[y] + element[y + 1]);
-                tab2.push(num);
+        var prixParPersonne = parseInt(input[0]),
+            total = 0,
+            gainTable = 0;
+        for (let index = 2; index < input.length; index++) {
+            var nbPersonnes = parseInt(input[index])
+            if (nbPersonnes >= 4 && nbPersonnes < 6) {
+                gainTable = prixParPersonne - (prixParPersonne/100)*10;
+                total += nbPersonnes * gainTable;
             }
+            else if (nbPersonnes >= 6 && nbPersonnes < 10) {
+                gainTable = prixParPersonne - (prixParPersonne/100)*20;
+                total += nbPersonnes * gainTable;
+            }
+            else if (nbPersonnes >= 10) {
+                gainTable = prixParPersonne - (prixParPersonne/100)*30;
+                total += nbPersonnes * gainTable;
+            } else
+                total += nbPersonnes * prixParPersonne;
         }
-        output.push(tab2);
-        tab2 = [];
+        console.log(Math.ceil(total));
     }
-    var tab3 = output.map(arr =>
-        Math.ceil(arr.reduce((sum, item) => (sum += item / arr.length), 0))
-    );
-    console.log(Math.max.apply(Math, tab3));
-}
 };
