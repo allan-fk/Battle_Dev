@@ -3,7 +3,7 @@
  * Use: console.log()  to output your result.
  * Use: console.error() to output debug information into STDERR
  * ***/
-var tools = require('./Buffet à volonté/app.js');
+
 
 const vardump = require("@smartankur4u/vardump");
 
@@ -15,12 +15,14 @@ function getDirectories(path) {
         return fs.statSync(path + '/' + file).isDirectory();
     });
 }
-
-var dir = getDirectories("./" + process.argv.slice(2, 3));
+var dir1 = process.argv.slice(2, 3);
+var dir2 = getDirectories("./" + process.argv.slice(2, 3));
 var file = process.argv.slice(3, 4)
 
+var tools = require('./'+ dir1[0] + '/app.js');
+
 const readline_object = readline.createInterface({
-    input: fs.createReadStream('Buffet à volonté/' + dir[0] + '/' + file),
+    input: fs.createReadStream(dir1[0] + '/' + dir2[0] + '/' + file),
     //output: process.stdout,
     console: false
 });
