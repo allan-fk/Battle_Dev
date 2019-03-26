@@ -1,0 +1,18 @@
+{
+  "name": "battle_dev",
+  "version": "1.0.0",
+  "description": "For  launch app",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@framagit.org:allanfk/battle_dev.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "toast_lib": "^1.0.2"
+  }
+}
